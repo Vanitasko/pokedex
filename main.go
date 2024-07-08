@@ -7,9 +7,12 @@ import (
 )
 
 func main() {
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
-
-	prompt := scanner.Text()
-	fmt.Println("echoing: ", prompt)
+	for {
+		//Grab new prompt
+		fmt.Print("pokeDEX => ")
+		scanner := bufio.NewScanner(os.Stdin)
+		scanner.Scan()
+		prompt := scanner.Text()
+		fmt.Println("echoing...", prompt)
+	}
 }
