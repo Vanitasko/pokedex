@@ -9,8 +9,9 @@ import (
 
 // NOTE:GO HTTP GET request
 func (c *Client) ListLocationAreas() (LocationAreaResponse, error) {
-	endpoint := "/location_area"
+	endpoint := "/location-area/"
 	fullURL := baseUrl + endpoint
+	fmt.Printf("my url: %s\n", fullURL)
 
 	req, err := http.NewRequest("GET", fullURL, nil)
 	if err != nil {
