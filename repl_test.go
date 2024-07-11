@@ -11,6 +11,7 @@ func TestCleanInput(t *testing.T) {
 		expected []string
 	}{
 		{
+			// TODO:add more tests cases just in case
 			input: "hello world",
 			expected: []string{
 				"hello",
