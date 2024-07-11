@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestCleanInput(t *testing.T) {
 	cases := []struct {
@@ -27,6 +30,7 @@ func TestCleanInput(t *testing.T) {
 
 	for _, cs := range cases {
 		actual := cleanInput(cs.input)
+		fmt.Printf("Testing inputs %s\n", actual)
 		if len(actual) != len(cs.expected) {
 			t.Errorf("The lengths are not equal - %v vs %v", len(actual), len(cs.expected))
 			continue
@@ -34,10 +38,12 @@ func TestCleanInput(t *testing.T) {
 		for i := range actual {
 			actualWord := actual[i]
 			expectedWord := cs.expected[i]
+			fmt.Printf(" Testing word '%s' against expected '%s'\n", actualWord, expectedWord)
 			if actualWord != expectedWord {
 				t.Errorf("The values are not equal - %s vs %s", actualWord, expectedWord)
 				continue
 			}
 		}
+		fmt.Println("----------------------")
 	}
 }

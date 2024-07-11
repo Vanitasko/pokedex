@@ -14,7 +14,22 @@ func StartRepl() {
 		scanner := bufio.NewScanner(os.Stdin)
 		scanner.Scan()
 		prompt := scanner.Text()
-		fmt.Println("echoing...", prompt)
+
+		cleanedPrompt := cleanInput(prompt)
+		if len(cleanedPrompt) == 0 {
+			continue
+		}
+
+		command := cleanedPrompt[0]
+		switch command {
+		case "exit":
+			os.Exit(0)
+		default:
+			fmt.Println("Command not configured")
+		}
+
+		//fmt.Println("echoing...", cleanedPrompt)
+
 	}
 }
 
